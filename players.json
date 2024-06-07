@@ -2,39 +2,102 @@
     "players": [
         {
             "id": 0,
-            "name": "Player 1"
+            "name": "Player 1",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 1,
-            "name": "Player 2"
+            "name": "Player 2",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 2,
-            "name": "Player 3"
+            "name": "Player 3",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 3,
-            "name": "Player 4"
+            "name": "Player 4",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 4,
-            "name": "Player 5"
+            "name": "Player 5",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 5,
-            "name": "Player 6"
+            "name": "Player 6",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 6,
-            "name": "Player 7"
+            "name": "Player 7",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 7,
-            "name": "Player 8"
+            "name": "Player 8",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 8,
-            "name": "Player 9"
+            "name": "Player 9",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 9,
