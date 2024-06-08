@@ -101,31 +101,80 @@
         },
         {
             "id": 9,
-            "name": "Player 10"
+            "name": "Player 10",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 10,
-            "name": "Player 11"
+            "name": "Player 11",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 11,
-            "name": "Player 12"
+            "name": "Player 12",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 12,
-            "name": "Player 13"
+            "name": "Player 13",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 13,
-            "name": "Player 14"
+            "name": "Player 14",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 14,
-            "name": "Player 15"
+            "name": "Player 15",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         },
         {
             "id": 15,
-            "name": "Player 16"
+            "name": "Player 16",
+            "group_ranking": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     ]
 }
