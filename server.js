@@ -25,11 +25,17 @@ app.use(session({
 }));
 app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
-// Ou, pour une configuration plus spécifique :
-app.use(cors({
-  origin: '*' // Remplacez ceci par l'URL de votre frontend
-}));
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', req.headers.origin); // Echo back the origin
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    if ('OPTIONS' === req.method) {
+      res.sendStatus(200);
+    } else {
+      next();
+    }
+  });
 const checkCredentials = require('./authentification');
 
 const unselected_player = require('./unselected_player.json');
