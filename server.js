@@ -2,6 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const cors = require('cors');
+
+
 
 const app = express();
 const port = 3000;
@@ -19,6 +22,12 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // Note: In production, set this to true and ensure you use HTTPS
+}));
+app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
+
+// Ou, pour une configuration plus spécifique :
+app.use(cors({
+  origin: '*' // Remplacez ceci par l'URL de votre frontend
 }));
 
 const checkCredentials = require('./authentification');
