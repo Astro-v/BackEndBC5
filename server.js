@@ -5,7 +5,6 @@ const fs = require('fs');
 const cors = require('cors');
 
 
-
 const app = express();
 const port = 3000;
 
@@ -16,26 +15,30 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(session({
     secret: 'your secret key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // Note: In production, set this to true and ensure you use HTTPS
+    cookie: {secure: false} // Note: In production, set this to true and ensure you use HTTPS
 }));
 app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
 app.use((req, res, next) => {
+    console.log(req.method + ' ' + req.path);
+    console.log(`Headers:${JSON.stringify(req.headers, null, 2)}`);
+    console.log(`Params:${JSON.stringify(req.params, null, 2)}`);
+    console.log(`Body:${JSON.stringify(req.body, null, 2)}`);
     res.header('Access-Control-Allow-Origin', req.headers.origin); // Echo back the origin
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     if ('OPTIONS' === req.method) {
-      res.sendStatus(200);
+        res.sendStatus(200);
     } else {
-      next();
+        next();
     }
-  });
+});
 const checkCredentials = require('./authentification');
 
 const unselected_player = require('./unselected_player.json');
@@ -44,14 +47,20 @@ const group_stage = require('./group_stage.json');
 const tournament_match = require('./tournament_match.json');
 const group_rank = require('./group_rank.json');
 
+const auth_token = 'mdpdezinzin123!!';
 
 function checkAuthenticated(req, res, next) {
-    console.log(req.sessionID);
-    if (req.session.loggedin) {
-        next();
+    // console.log(req.sessionID);
+    if (req.headers.authorization) {
+        const req_token = req.headers.authorization.split(' ')[1];
+        console.log(req_token);
+        if (req_token === auth_token)
+            next();
+        else {
+            console.log('Wrong token');
+        }
     } else {
-        // not logged in
-        console.log('Not logged in');
+        console.log('Missing Authorization header');
     }
 }
 
@@ -69,11 +78,11 @@ app.post('/login', (req, res) => {
             req.session.loggedin = true;
             req.session.username = username;
             // return cookies
-            res.json({ sessionID: req.sessionID });
+            res.json({sessionID: req.sessionID, token: auth_token});
         } else {
             req.session.loggedin = false;
             console.log('User ' + username + ' failed to log in');
-            res.render('login', { wrong_login: true });
+            res.render('login', {wrong_login: true});
         }
     }).catch((err) => {
         console.log(err);
@@ -94,8 +103,7 @@ app.post('/select_player/:id', checkAuthenticated, (req, res) => {
 
         save();
         res.json(players);
-    } 
-
+    }
 });
 
 // curl -b cookies.txt http://localhost:3000/test
@@ -117,12 +125,12 @@ app.get('/poules_rank', (req, res) => {
 app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     const poule_id = parseInt(req.params.poule_id, 10);
     const game_id = parseInt(req.params.game_id, 10);
-    const result = req.body.result; // tabular 
-    
+    const result = req.body.result; // tabular
+
     for (let i = 0; i < 8; i++) {
         group_stage.group[poule_id].players[i].ranking[game_id] = result[i];
     }
-    
+
     calculateScores();
 
     updateGroupRank();
@@ -146,7 +154,7 @@ app.post('/tournament/:match_id/:player/:score', checkAuthenticated, (req, res) 
     const match_id = parseInt(req.params.match_id, 10);
     const player = parseInt(req.params.player, 10);
     const score = parseInt(req.params.score, 10);
-    
+
     tournament_match.match_list[match_id].players[player].score = score;
 
     updateTournamentTree();
@@ -160,7 +168,7 @@ app.post('/tournament/:match_id/:player/:ban', checkAuthenticated, (req, res) =>
     const match_id = parseInt(req.params.match_id, 10);
     const player = parseInt(req.params.player, 10);
     const ban = parseInt(req.params.ban, 10);
-    
+
     tournament_match.match_list[match_id].players[player].ban = ban;
 
     updateTournamentTree();
@@ -188,7 +196,11 @@ function updateGroupRank() {
     for (let i = 0; i < 2; i++) {
         group_rank.group[i].players = [];
         for (let j = 0; j < 8; j++) {
-            group_rank.group[i].players.push({id: group_stage.group[i].players[j].id, score: group_stage.group[i].players[j].score, name: group_stage.group[i].players[j].name});
+            group_rank.group[i].players.push({
+                id: group_stage.group[i].players[j].id,
+                score: group_stage.group[i].players[j].score,
+                name: group_stage.group[i].players[j].name
+            });
         }
         group_rank.group[i].players.sort((a, b) => b.score - a.score);
     }
@@ -198,15 +210,15 @@ function initializeTournamentTree() {
     for (let i = 0; i < 4; i++) {
         tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
         tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
-        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3-i].id;
-        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3-i].name;
+        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3 - i].id;
+        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3 - i].name;
     }
-    
+
     for (let i = 4; i < 8; i++) {
         tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
         tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
-        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8-i].id;
-        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8-i].name;
+        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8 - i].id;
+        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8 - i].name;
     }
 }
 
@@ -217,15 +229,15 @@ function updateTournamentTree() {
         if (player1.origin_match_id != -1) {
             player11 = tournament_match.match_list[player1.origin_match_id].players[0];
             player12 = tournament_match.match_list[player1.origin_match_id].players[1];
-            if ((player11.score > player12.score && player1.is_winner == true) || (player11.score < player12.score && player1.is_winner == false)){
+            if ((player11.score > player12.score && player1.is_winner == true) || (player11.score < player12.score && player1.is_winner == false)) {
                 tournament_match.match_list[i].players[0].id = player11.id;
                 tournament_match.match_list[i].players[0].name = player11.name;
-            } else if ((player11.score < player12.score && player1.is_winner == true) || (player11.score > player12.score && player1.is_winner == false)){
+            } else if ((player11.score < player12.score && player1.is_winner == true) || (player11.score > player12.score && player1.is_winner == false)) {
                 tournament_match.match_list[i].players[0].id = player12.id;
                 tournament_match.match_list[i].players[0].name = player12.name;
             }
         }
-        
+
         let player2 = tournament_match.match_list[i].players[1];
         if (player2.origin_match_id != -1) {
             player21 = tournament_match.match_list[player2.origin_match_id].players[0];
