@@ -4,27 +4,27 @@
         {
             "players": 
             [
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0}
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0}
             ]
         },
         {
             "players": 
             [
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0},
-                {"id": 0,"name": "Player ???","score": 0}
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0},
+                {"id": 0,"name": "???","score": 0}
             ]
         }
     ]

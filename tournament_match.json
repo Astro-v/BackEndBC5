@@ -8,14 +8,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -30,14 +32,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -52,14 +56,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -74,14 +80,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -96,14 +104,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -118,14 +128,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -140,14 +152,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -162,14 +176,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": -1,
@@ -184,14 +200,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 0,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 4,
@@ -206,14 +224,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 1,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 5,
@@ -228,14 +248,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 2,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 6,
@@ -250,14 +272,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 3,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 7,
@@ -272,14 +296,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 0,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 1,
@@ -294,14 +320,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 2,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 3,
@@ -316,14 +344,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 8,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 9,
@@ -338,14 +368,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 10,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 11,
@@ -360,14 +392,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 12,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 14,
@@ -382,14 +416,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 13,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 15,
@@ -404,14 +440,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 12,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 13,
@@ -426,14 +464,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 16,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 17,
@@ -448,14 +488,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 18,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 19,
@@ -470,14 +512,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 18,
                     "is_winner": true
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 20,
@@ -492,14 +536,16 @@
             "players" :
             [
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 21,
                     "is_winner": false
                 },
                 {
-                    "id": 0,
+                    "id": -1,
+                    "name": "???",
                     "ban": 0,
                     "score": 0,
                     "origin_match_id": 21,

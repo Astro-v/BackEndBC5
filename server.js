@@ -23,6 +23,7 @@ app.use(session({
 
 const checkCredentials = require('./authentification');
 
+const unselected_player = require('./unselected_player.json');
 const players = require('./players.json');
 const group_stage = require('./group_stage.json');
 const tournament_match = require('./tournament_match.json');
@@ -64,7 +65,23 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('/select_player/:id', checkAuthenticated, (req, res) => {
+    // if unselectd_player is not empty
+    if (unselected_player.name.length > 0) {
+        // select a random player
+        const randomIndex = Math.floor(Math.random() * unselected_player.name.length);
+        const player_name = unselected_player.name[randomIndex];
 
+        // remove the selected player from unselected_player
+        unselected_player.name.splice(randomIndex, 1);
+
+        rename(parseInt(req.params.id, 10), player_name);
+
+        save();
+        res.json(players);
+    } 
+
+});
 
 // curl -b cookies.txt http://localhost:3000/test
 app.get('/test', checkAuthenticated, (req, res) => {
@@ -74,6 +91,11 @@ app.get('/test', checkAuthenticated, (req, res) => {
 // curl -b cookies.txt http://localhost:3000/poules
 app.get('/poules', (req, res) => {
     res.json(group_stage);
+});
+
+// curl -b cookies.txt http://localhost:3000/poules_rank
+app.get('/poules_rank', (req, res) => {
+    res.json(group_rank);
 });
 
 // curl -b cookies.txt -X POST http://localhost:3000/poules/0/1 -H "Content-Type: application/json" -d '{"result":[0,1,2,3,4,5,6,7]}'
@@ -88,32 +110,49 @@ app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     
     calculateScores();
 
-    // override the group_stage.json file
-    fs.writeFile('group_stage_save.json', JSON.stringify(group_stage), (err) => {
-        if (err) {
-            console.log(err);
-        }
-    });
-
     updateGroupRank();
-
-    fs.writeFile('group_rank_save.json', JSON.stringify(group_rank), (err) => {
-        if (err) {
-            console.log(err);
-        }
-    });
 
     initializeTournamentTree();
 
     updateTournamentTree();
 
-    fs.writeFile('tournament_match_save.json', JSON.stringify(tournament_match), (err) => {
-        if (err) {
-            console.log(err);
-        }
-    });
+    save();
 
     res.json(group_stage);
+});
+
+// curl -b cookies.txt http://localhost:3000/tournament
+app.get('/tournament', (req, res) => {
+    res.json(tournament_match);
+});
+
+// curl -b cookies.txt -X POST http://localhost:3000/tournament/0/0/3
+app.post('/tournament/:match_id/:player/:score', checkAuthenticated, (req, res) => {
+    const match_id = parseInt(req.params.match_id, 10);
+    const player = parseInt(req.params.player, 10);
+    const score = parseInt(req.params.score, 10);
+    
+    tournament_match.match_list[match_id].players[player].score = score;
+
+    updateTournamentTree();
+
+    save();
+
+    res.json(tournament_match);
+});
+
+app.post('/tournament/:match_id/:player/:ban', checkAuthenticated, (req, res) => {
+    const match_id = parseInt(req.params.match_id, 10);
+    const player = parseInt(req.params.player, 10);
+    const ban = parseInt(req.params.ban, 10);
+    
+    tournament_match.match_list[match_id].players[player].ban = ban;
+
+    updateTournamentTree();
+
+    save();
+
+    res.json(tournament_match);
 });
 
 
@@ -143,12 +182,16 @@ function updateGroupRank() {
 function initializeTournamentTree() {
     for (let i = 0; i < 4; i++) {
         tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
+        tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
         tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3-i].id;
+        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3-i].name;
     }
     
     for (let i = 4; i < 8; i++) {
         tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
+        tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
         tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8-i].id;
+        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8-i].name;
     }
 }
 
@@ -159,10 +202,12 @@ function updateTournamentTree() {
         if (player1.origin_match_id != -1) {
             player11 = tournament_match.match_list[player1.origin_match_id].players[0];
             player12 = tournament_match.match_list[player1.origin_match_id].players[1];
-            if (player11.score > player12.score) {
+            if ((player11.score > player12.score && player1.is_winner == true) || (player11.score < player12.score && player1.is_winner == false)){
                 tournament_match.match_list[i].players[0].id = player11.id;
-            } else if (player11.score < player12.score){
+                tournament_match.match_list[i].players[0].name = player11.name;
+            } else if ((player11.score < player12.score && player1.is_winner == true) || (player11.score > player12.score && player1.is_winner == false)){
                 tournament_match.match_list[i].players[0].id = player12.id;
+                tournament_match.match_list[i].players[0].name = player12.name;
             }
         }
         
@@ -170,15 +215,73 @@ function updateTournamentTree() {
         if (player2.origin_match_id != -1) {
             player21 = tournament_match.match_list[player2.origin_match_id].players[0];
             player22 = tournament_match.match_list[player2.origin_match_id].players[1];
-            if (player21.score > player22.score) {
+            if ((player21.score > player22.score && player2.is_winner == true) || (player21.score < player22.score && player2.is_winner == false)) {
                 tournament_match.match_list[i].players[1].id = player21.id;
-            } else if (player21.score < player22.score) {
+                tournament_match.match_list[i].players[1].name = player21.name;
+            } else if ((player21.score < player22.score && player2.is_winner == true) || (player21.score > player22.score && player2.is_winner == false)) {
                 tournament_match.match_list[i].players[1].id = player22.id;
+                tournament_match.match_list[i].players[1].name = player22.name;
             }
         }
     }
 }
 
+function rename(id, name) {
+    for (let i = 0; i < group_stage.group[0].players.length; i++) {
+        if (group_stage.group[0].players[i].id == id) {
+            group_stage.group[0].players[i].name = name;
+        }
+    }
+    for (let i = 0; i < group_stage.group[1].players.length; i++) {
+        if (group_stage.group[1].players[i].id == id) {
+            group_stage.group[1].players[i].name = name;
+        }
+    }
+    for (let i = 0; i < tournament_match.match_list.length; i++) {
+        if (tournament_match.match_list[i].players[0].id == id) {
+            tournament_match.match_list[i].players[0].name = name;
+        }
+        if (tournament_match.match_list[i].players[1].id == id) {
+            tournament_match.match_list[i].players[1].name = name;
+        }
+    }
+    players.name[id] = name;
+
+    updateGroupRank();
+}
+
+function save() {
+
+    fs.writeFile('unselected_player_save.json', JSON.stringify(unselected_player, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    fs.writeFile('players_save.json', JSON.stringify(players, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    fs.writeFile('group_stage_save.json', JSON.stringify(group_stage, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    fs.writeFile('group_rank_save.json', JSON.stringify(group_rank, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    fs.writeFile('tournament_match_save.json', JSON.stringify(tournament_match, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+}
 
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
