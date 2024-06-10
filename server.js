@@ -106,9 +106,9 @@ app.post('/select_player/:id', checkAuthenticated, (req, res) => {
     }
 });
 
-// curl -b cookies.txt http://localhost:3000/test
-app.get('/test', checkAuthenticated, (req, res) => {
-    console.log("test");
+// curl -b cookies.txt http://localhost:3000/status
+app.get('/status', (req, res) => {
+    res.json({status: 'OK'});
 });
 
 // curl -b cookies.txt http://localhost:3000/poules
