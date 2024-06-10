@@ -15,12 +15,12 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'your secret key',
     resave: false,
     saveUninitialized: false,
-    cookie: {secure: false} // Note: In production, set this to true and ensure you use HTTPS
+    cookie: { secure: false } // Note: In production, set this to true and ensure you use HTTPS
 }));
 app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
@@ -44,16 +44,20 @@ const checkCredentials = require('./authentification');
 const unselected_player = require('./unselected_player.json');
 const players = require('./players.json');
 const group_stage = require('./group_stage.json');
-const tournament_match = require('./tournament_match.json');
 const group_rank = require('./group_rank.json');
+const tournament_match = require('./tournament_match.json');
+const tournament_tree = require('./tournament_tree.json');
 
-const auth_token = 'mdpdezinzin123!!';
+const auth_token = 'mdpdezinzin123';
 
 function checkAuthenticated(req, res, next) {
-    // console.log(req.sessionID);
+    console.log("================");
+    console.log(req.headers);
+    console.log("================");
     if (req.headers.authorization) {
+        console.log("req authorization =========" + req.headers.authorization);
         const req_token = req.headers.authorization.split(' ')[1];
-        console.log(req_token);
+        console.log("req tocken =========" + req_token);
         if (req_token === auth_token)
             next();
         else {
@@ -78,17 +82,18 @@ app.post('/login', (req, res) => {
             req.session.loggedin = true;
             req.session.username = username;
             // return cookies
-            res.json({sessionID: req.sessionID, token: auth_token});
+            res.json({ sessionID: req.sessionID, token: auth_token });
         } else {
             req.session.loggedin = false;
             console.log('User ' + username + ' failed to log in');
-            res.render('login', {wrong_login: true});
+            res.render('login', { wrong_login: true });
         }
     }).catch((err) => {
         console.log(err);
     });
 });
 
+// curl -X POST http://localhost:3000/select_player/0 -H "Content-Type: application/json" -H "Authorization: Bearer mdpdezinzin123"
 app.post('/select_player/:id', checkAuthenticated, (req, res) => {
     // if unselectd_player is not empty
     if (unselected_player.name.length > 0) {
@@ -120,8 +125,7 @@ app.get('/poules', (req, res) => {
 app.get('/poules_rank', (req, res) => {
     res.json(group_rank);
 });
-
-// curl -b cookies.txt -X POST http://localhost:3000/poules/0/1 -H "Content-Type: application/json" -d '{"result":[0,1,2,3,4,5,6,7]}'
+// curl -X POST http://localhost:3000/poules/0/1 -H "Content-Type: application/json" -H "Authorization: Bearer mdpdezinzin123" -d '{"result":[0,1,2,3,4,5,6,7]}'
 app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     const poule_id = parseInt(req.params.poule_id, 10);
     const game_id = parseInt(req.params.game_id, 10);
@@ -135,9 +139,9 @@ app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
 
     updateGroupRank();
 
-    initializeTournamentTree();
+    initializeTournament();
 
-    updateTournamentTree();
+    updateTournament();
 
     save();
 
@@ -157,7 +161,7 @@ app.post('/tournament/:match_id/:player/:score', checkAuthenticated, (req, res) 
 
     tournament_match.match_list[match_id].players[player].score = score;
 
-    updateTournamentTree();
+    updateTournament();
 
     save();
 
@@ -171,11 +175,11 @@ app.post('/tournament/:match_id/:player/:ban', checkAuthenticated, (req, res) =>
 
     tournament_match.match_list[match_id].players[player].ban = ban;
 
-    updateTournamentTree();
+    updateTournament();
 
     save();
 
-    res.json(tournament_match);
+    res.json(tournament_tree);
 });
 
 
@@ -206,7 +210,7 @@ function updateGroupRank() {
     }
 }
 
-function initializeTournamentTree() {
+function initializeTournament() {
     for (let i = 0; i < 4; i++) {
         tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
         tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
@@ -220,10 +224,12 @@ function initializeTournamentTree() {
         tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8 - i].id;
         tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8 - i].name;
     }
+
+    updateTournamentTree(tournament_tree.tournamentTree.default);
 }
 
 // function that compute the tournament tree
-function updateTournamentTree() {
+function updateTournament() {
     for (let i = 0; i < tournament_match.match_list.length; i++) {
         let player1 = tournament_match.match_list[i].players[0];
         if (player1.origin_match_id != -1) {
@@ -251,6 +257,8 @@ function updateTournamentTree() {
             }
         }
     }
+
+    updateTournamentTree(tournament_tree.tournamentTree.default);
 }
 
 function rename(id, name) {
@@ -275,6 +283,20 @@ function rename(id, name) {
     players.name[id] = name;
 
     updateGroupRank();
+}
+
+// update the tournament tree recurcively :
+function updateTournamentTree(tree) {
+    if (tree.id_match != undefined && tree.topPlayer != undefined && tree.bottomPlayer != undefined) {
+        tree.topPlayer = tournament_match.match_list[tree.id_match].players[0].name;
+        tree.bottomPlayer = tournament_match.match_list[tree.id_match].players[1].name;
+        if (tree.topChild != undefined && typeof tree.topChild != 'string') {
+            updateTournamentTree(tree.topChild);
+        }
+        if (tree.bottomChild != undefined && typeof tree.bottomChild != 'string') {
+            updateTournamentTree(tree.bottomChild);
+        }
+    }
 }
 
 function save() {
@@ -304,6 +326,12 @@ function save() {
     });
 
     fs.writeFile('tournament_match_save.json', JSON.stringify(tournament_match, null, 2), (err) => {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+    fs.writeFile('tournament_tree_save.json', JSON.stringify(tournament_tree, null, 2), (err) => {
         if (err) {
             console.log(err);
         }

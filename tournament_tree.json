@@ -1,0 +1,124 @@
+{
+    "tournamentTree": {
+        "default": {
+            "label": "Grande Finale",
+            "id_match": 21,
+            "topPlayer": "Joueur ???",
+            "bottomPlayer": "Joueur ???",
+            "topChild": {
+                "label": "Finale Winners",
+                "id_match": 18,
+                "topPlayer": "Joueur ???",
+                "bottomPlayer": "Joueur ???",
+                "topChild": {
+                    "id_match": 12,
+                    "topPlayer": "Joueur ???",
+                    "bottomPlayer": "Joueur ???",
+                    "topChild": {
+                        "id_match": 0,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???"
+                    },
+                    "bottomChild": {
+                        "id_match": 1,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???"
+                    }
+                },
+                "bottomChild": {
+                    "id_match": 13,
+                    "topPlayer": "Joueur ???",
+                    "bottomPlayer": "Joueur ???",
+                    "topChild": {
+                        "id_match": 2,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???"
+                    },
+                    "bottomChild": {
+                        "id_match": 3,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???"
+                    }
+                }
+            },
+            "bottomChild": {
+                "label": "Finale Losers",
+                "id_match": 20,
+                "topPlayer": "Joueur ???",
+                "bottomPlayer": "Joueur ???",
+                "topChild": "(w7)",
+                "bottomChild": {
+                    "id_match": 19,
+                    "topPlayer": "Joueur ???",
+                    "bottomPlayer": "Joueur ???",
+                    "topChild": {
+                        "id_match": 16,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???",
+                        "topChild": "(w5)",
+                        "bottomChild": {
+                            "id_match": 14,
+                            "topPlayer": "Joueur ???",
+                            "bottomPlayer": "Joueur ???",
+                            "topChild": {
+                                "id_match": 8,
+                                "topPlayer": "Joueur ???",
+                                "bottomPlayer": "Joueur ???",
+                                "topChild": "(w1)",
+                                "bottomChild": {
+                                    "id_match": 4,
+                                    "topPlayer": "Joueur ???",
+                                    "bottomPlayer": "Joueur ???"
+                                }
+                            },
+                            "bottomChild": {
+                                "id_match": 9,
+                                "topPlayer": "Joueur ???",
+                                "bottomPlayer": "Joueur ???",
+                                "topChild": "(w2)",
+                                "bottomChild": {
+                                    "id_match": 5,
+                                    "topPlayer": "Joueur ???",
+                                    "bottomPlayer": "Joueur ???"
+                                }
+                            }
+                        }
+                    },
+                    "bottomChild": {
+                        "id_match": 17,
+                        "topPlayer": "Joueur ???",
+                        "bottomPlayer": "Joueur ???",
+                        "topChild": "(w6)",
+                        "bottomChild": {
+                            "id_match": 15,
+                            "topPlayer": "Joueur ???",
+                            "bottomPlayer": "Joueur ???",
+                            "topChild": {
+                                "id_match": 10,
+                                "topPlayer": "Joueur ???",
+                                "bottomPlayer": "Joueur ???",
+                                "topChild": "(w3)",
+                                "bottomChild": {
+                                    "id_match": 6,
+                                    "topPlayer": "Joueur ???",
+                                    "bottomPlayer": "Joueur ???"
+                                }
+                            },
+                            "bottomChild": {
+                                "id_match": 11,
+                                "topPlayer": "Joueur ???",
+                                "bottomPlayer": "Joueur ???",
+                                "topChild": "(w4)",
+                                "bottomChild": {
+                                    "id_match": 7,
+                                    "topPlayer": "Joueur ???",
+                                    "bottomPlayer": "Joueur ???"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
