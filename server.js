@@ -14,7 +14,6 @@ const points = [0, 12, 9, 7, 5, 3, 2, 1, 0];
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'your secret key',
