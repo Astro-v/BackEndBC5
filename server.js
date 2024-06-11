@@ -124,6 +124,7 @@ app.get('/poules', (req, res) => {
 app.get('/poules_rank', (req, res) => {
     res.json(group_rank);
 });
+
 // curl -X POST http://localhost:3000/poules/0/1 -H "Content-Type: application/json" -H "Authorization: Bearer mdpdezinzin123" -d '{"result":[0,1,2,3,4,5,6,7]}'
 app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     const poule_id = parseInt(req.params.poule_id, 10);
@@ -141,6 +142,19 @@ app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     initializeTournament();
 
     updateTournament();
+
+    save();
+
+    res.json(group_stage);
+});
+
+app.post('/change_group_game/:group_index/:game_index', checkAuthenticated, (req, res) => {
+    const group_index = parseInt(req.params.group_index, 10);
+    const game_index = parseInt(req.params.game_index, 10);
+
+    for (let i = 0; i < 8; i++) {
+        group_stage.group[group_index].game_index = game_index;
+    }
 
     save();
 

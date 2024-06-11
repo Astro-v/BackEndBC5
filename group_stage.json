@@ -2,7 +2,7 @@
     "group":
     [
         {
-            "game_index":1,
+            "game_index":0,
             "players":
             [
                 {"id":0,"name":"???","score":0,"ranking":[0,0,0,0,0]},
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "game_index":1,
+            "game_index":0,
             "players":
             [
                 {"id":8,"name":"???","score":0,"ranking":[0,0,0,0,0]},
