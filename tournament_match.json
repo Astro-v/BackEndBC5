@@ -4,7 +4,7 @@
         {
             "label": "Winner Bracket 1/4 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "14h30",
             "players" :
             [
                 {
@@ -28,7 +28,7 @@
         { 
             "label": "Winner Bracket 1/4 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "14h30",
             "players" :
             [
                 {
@@ -52,7 +52,7 @@
         { 
             "label": "Winner Bracket 1/4 Final 3",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "15h30",
             "players" :
             [
                 {
@@ -76,7 +76,7 @@
         { 
             "label": "Winner Bracket 1/4 Final 4",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "15h30",
             "players" :
             [
                 {
@@ -100,7 +100,7 @@
         { 
             "label": "Loser Bracket 1/32 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "15h",
             "players" :
             [
                 {
@@ -124,7 +124,7 @@
         {
             "label": "Loser Bracket 1/32 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "15h",
             "players" :
             [
                 {
@@ -148,7 +148,7 @@
         { 
             "label": "Loser Bracket 1/32 Final 3",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "16h",
             "players" :
             [
                 {
@@ -172,7 +172,7 @@
         { 
             "label": "Loser Bracket 1/32 Final 4",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "16h",
             "players" :
             [
                 {
@@ -196,7 +196,7 @@
         { 
             "label": "Loser Bracket 1/16 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "16h30",
             "players" :
             [
                 {
@@ -220,7 +220,7 @@
         { 
             "label": "Loser Bracket 1/16 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "16h30",
             "players" :
             [
                 {
@@ -244,7 +244,7 @@
         { 
             "label": "Loser Bracket 1/16 Final 3",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "17h",
             "players" :
             [
                 {
@@ -268,7 +268,7 @@
         { 
             "label": "Loser Bracket 1/16 Final 4",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "17h",
             "players" :
             [
                 {
@@ -292,7 +292,7 @@
         {
             "label": "Winner Bracket 1/2 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "17h30",
             "players" :
             [
                 {
@@ -316,7 +316,7 @@
         {
             "label": "Winner Bracket 1/2 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "17h30",
             "players" :
             [
                 {
@@ -340,7 +340,7 @@
         {
             "label": "Loser Bracket 1/8 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "18h",
             "players" :
             [
                 {
@@ -364,7 +364,7 @@
         {
             "label": "Loser Bracket 1/8 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "18h",
             "players" :
             [
                 {
@@ -388,7 +388,7 @@
         {
             "label": "Loser Bracket 1/4 Final 1",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "18h30",
             "players" :
             [
                 {
@@ -412,7 +412,7 @@
         {
             "label": "Loser Bracket 1/4 Final 2",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "19h",
             "players" :
             [
                 {
@@ -435,8 +435,8 @@
         },
         {
             "label": "Winner Bracket Final",
-            "nb_games": 3,
-            "date" : "hh:mm",
+            "nb_games": 5,
+            "date" : "19h30",
             "players" :
             [
                 {
@@ -460,7 +460,7 @@
         {
             "label": "Loser Bracket 1/2 Final",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "20h30",
             "players" :
             [
                 {
@@ -484,7 +484,7 @@
         {
             "label": "Loser Bracket Final",
             "nb_games": 3,
-            "date" : "hh:mm",
+            "date" : "21h",
             "players" :
             [
                 {
@@ -508,7 +508,7 @@
         {
             "label": "First Final",
             "nb_games": 5,
-            "date" : "hh:mm",
+            "date" : "22h",
             "players" :
             [
                 {
@@ -532,7 +532,7 @@
         {
             "label": "Second Final",
             "nb_games": 5,
-            "date" : "hh:mm",
+            "date" : "23h",
             "players" :
             [
                 {

@@ -3,39 +3,47 @@
         "default": {
             "label": "Grande Finale",
             "id_match": 21,
+            "date": "",
             "topPlayer": "Joueur ???",
             "bottomPlayer": "Joueur ???",
             "topChild": {
                 "label": "Finale Winners",
                 "id_match": 18,
+                "date": "",
                 "topPlayer": "Joueur ???",
                 "bottomPlayer": "Joueur ???",
                 "topChild": {
                     "id_match": 12,
+                    "date": "",
                     "topPlayer": "Joueur ???",
                     "bottomPlayer": "Joueur ???",
                     "topChild": {
                         "id_match": 0,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???"
                     },
                     "bottomChild": {
                         "id_match": 1,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???"
                     }
                 },
                 "bottomChild": {
                     "id_match": 13,
+                    "date": "",
                     "topPlayer": "Joueur ???",
                     "bottomPlayer": "Joueur ???",
                     "topChild": {
                         "id_match": 2,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???"
                     },
                     "bottomChild": {
                         "id_match": 3,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???"
                     }
@@ -44,35 +52,42 @@
             "bottomChild": {
                 "label": "Finale Losers",
                 "id_match": 20,
+                "date": "",
                 "topPlayer": "Joueur ???",
                 "bottomPlayer": "Joueur ???",
                 "topChild": "(w7)",
                 "bottomChild": {
                     "id_match": 19,
+                    "date": "",
                     "topPlayer": "Joueur ???",
                     "bottomPlayer": "Joueur ???",
                     "topChild": {
                         "id_match": 16,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???",
                         "topChild": "(w5)",
                         "bottomChild": {
                             "id_match": 14,
+                            "date": "",
                             "topPlayer": "Joueur ???",
                             "bottomPlayer": "Joueur ???",
                             "topChild": {
                                 "id_match": 8,
+                                "date": "",
                                 "topPlayer": "Joueur ???",
                                 "bottomPlayer": "Joueur ???",
                                 "topChild": "(w1)",
                                 "bottomChild": {
                                     "id_match": 4,
+                                    "date": "",
                                     "topPlayer": "Joueur ???",
                                     "bottomPlayer": "Joueur ???"
                                 }
                             },
                             "bottomChild": {
                                 "id_match": 9,
+                                "date": "",
                                 "topPlayer": "Joueur ???",
                                 "bottomPlayer": "Joueur ???",
                                 "topChild": "(w2)",
@@ -86,31 +101,37 @@
                     },
                     "bottomChild": {
                         "id_match": 17,
+                        "date": "",
                         "topPlayer": "Joueur ???",
                         "bottomPlayer": "Joueur ???",
                         "topChild": "(w6)",
                         "bottomChild": {
                             "id_match": 15,
+                            "date": "",
                             "topPlayer": "Joueur ???",
                             "bottomPlayer": "Joueur ???",
                             "topChild": {
                                 "id_match": 10,
+                                "date": "",
                                 "topPlayer": "Joueur ???",
                                 "bottomPlayer": "Joueur ???",
                                 "topChild": "(w3)",
                                 "bottomChild": {
                                     "id_match": 6,
+                                    "date": "",
                                     "topPlayer": "Joueur ???",
                                     "bottomPlayer": "Joueur ???"
                                 }
                             },
                             "bottomChild": {
                                 "id_match": 11,
+                                "date": "",
                                 "topPlayer": "Joueur ???",
                                 "bottomPlayer": "Joueur ???",
                                 "topChild": "(w4)",
                                 "bottomChild": {
                                     "id_match": 7,
+                                    "date": "",
                                     "topPlayer": "Joueur ???",
                                     "bottomPlayer": "Joueur ???"
                                 }
