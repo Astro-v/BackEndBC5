@@ -152,9 +152,7 @@ app.post('/change_group_game/:group_index/:game_index', checkAuthenticated, (req
     const group_index = parseInt(req.params.group_index, 10);
     const game_index = parseInt(req.params.game_index, 10);
 
-    for (let i = 0; i < 8; i++) {
-        group_stage.group[group_index].game_index = game_index;
-    }
+    group_stage.group[group_index].game_index = game_index;
 
     save();
 
