@@ -149,6 +149,27 @@ app.post('/poules/:poule_id/:game_id', checkAuthenticated, (req, res) => {
     res.json(group_stage);
 });
 
+app.post('/poules_bonus/:poule_id', checkAuthenticated, (req, res) => {
+    const poule_id = parseInt(req.params.poule_id, 10);
+    const result = req.body.result; // tabular
+
+    for (let i = 0; i < 8; i++) {
+        group_stage.group[poule_id].players[i].bonus = result[i];
+    }
+
+    calculateScores();
+
+    updateGroupRank();
+
+    initializeTournament();
+
+    updateTournament();
+
+    save();
+
+    res.json(group_stage);
+});
+
 app.post('/change_group_game/:group_index/:game_index', checkAuthenticated, (req, res) => {
     const group_index = parseInt(req.params.group_index, 10);
     const game_index = parseInt(req.params.game_index, 10);
@@ -223,7 +244,7 @@ function updateGroupRank() {
                 name: group_stage.group[i].players[j].name
             });
         }
-        group_rank.group[i].players.sort((a, b) => b.score - a.score);
+        group_rank.group[i].players.sort((a, b) => b.score - a.score + (b.bonus - a.bonus) * 0.01);
     }
 }
 

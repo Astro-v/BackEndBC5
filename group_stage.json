@@ -5,28 +5,28 @@
             "game_index":-1,
             "players":
             [
-                {"id":0,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":1,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":2,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":3,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":4,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":5,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":6,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":7,"name":"???","score":0,"ranking":[0,0,0,0,0]}
+                {"id":0,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":1,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":2,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":3,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":4,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":5,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":6,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":7,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0}
             ]
         },
         {
             "game_index":-1,
             "players":
             [
-                {"id":8,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":9,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":10,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":11,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":12,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":13,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":14,"name":"???","score":0,"ranking":[0,0,0,0,0]},
-                {"id":15,"name":"???","score":0,"ranking":[0,0,0,0,0]}
+                {"id":8,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":9,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":10,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":11,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":12,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":13,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":14,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
+                {"id":15,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0}
             ]
         }
     ]
