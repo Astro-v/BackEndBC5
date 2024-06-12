@@ -241,6 +241,7 @@ function updateGroupRank() {
             group_rank.group[i].players.push({
                 id: group_stage.group[i].players[j].id,
                 score: group_stage.group[i].players[j].score,
+                bonus: group_stage.group[i].players[j].bonus,
                 name: group_stage.group[i].players[j].name
             });
         }
@@ -310,6 +311,8 @@ function updateTournament() {
 
     updateTournamentTree(tournament_tree.tournamentTree.default);
 }
+
+
 
 function rename(id, name) {
     for (let i = 0; i < group_stage.group[0].players.length; i++) {

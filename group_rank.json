@@ -4,27 +4,27 @@
         {
             "players": 
             [
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0}
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0}
             ]
         },
         {
             "players": 
             [
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0},
-                {"id": 0,"name": "???","score": 0}
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0},
+                {"id": 0,"name": "???","score": 0,"bonus": 0}
             ]
         }
     ]
