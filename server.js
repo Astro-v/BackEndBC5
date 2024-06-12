@@ -9,7 +9,9 @@ const app = express();
 const port = 3000;
 
 // Tableau des points attribués pour chaque place
-const points = [0, 12, 9, 7, 5, 3, 2, 1, 0];
+const points = [0, 
+    
+];
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -206,7 +208,7 @@ app.post('/tournament/:match_id/:player/:score', checkAuthenticated, (req, res) 
     res.json(tournament_match);
 });
 
-app.post('/tournament/:match_id/:player/:ban', checkAuthenticated, (req, res) => {
+app.post('/tournament_ban/:match_id/:player/:ban', checkAuthenticated, (req, res) => {
     const match_id = parseInt(req.params.match_id, 10);
     const player = parseInt(req.params.player, 10);
     const ban = parseInt(req.params.ban, 10);
