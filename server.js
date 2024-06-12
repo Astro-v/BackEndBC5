@@ -303,7 +303,7 @@ function rename(id, name) {
 
 // update the tournament tree recurcively :
 function updateTournamentTree(tree) {
-    if (tree.id_match != undefined && tree.topPlayer != undefined && tree.bottomPlayer != undefined && tree.date != undefined) {
+    if (tree !== undefined) {
         tree.topPlayer = tournament_match.match_list[tree.id_match].players[0];
         tree.bottomPlayer = tournament_match.match_list[tree.id_match].players[1];
         tree.date = tournament_match.match_list[tree.id_match].date;
