@@ -9,9 +9,7 @@ const app = express();
 const port = 3000;
 
 // Tableau des points attribués pour chaque place
-const points = [0, 
-    
-];
+const points = [0, 12, 9, 7, 5, 3, 2, 1, 0];
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -267,13 +265,13 @@ function initializeTournament() {
 
     if (hasDoneAllGroupGames(1)) {
         for (let i = 0; i < 4; i++) {
-            tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8 - i].id;
-            tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8 - i].name;
-        }
-
-        for (let i = 4; i < 8; i++) {     
             tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3 - i].id;
             tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3 - i].name;
+        }
+
+        for (let i = 4; i < 8; i++) {
+            tournament_match.match_list[i].players[1].id = group_rank.group[1].players[11 - i].id;
+            tournament_match.match_list[i].players[1].name = group_rank.group[1].players[11 - i].name;
         }
     }
     
@@ -284,29 +282,20 @@ function initializeTournament() {
 // function that compute the tournament tree
 function updateTournament() {
     for (let i = 0; i < tournament_match.match_list.length; i++) {
-        let player1 = tournament_match.match_list[i].players[0];
-        if (player1.origin_match_id != -1) {
-            player11 = tournament_match.match_list[player1.origin_match_id].players[0];
-            player12 = tournament_match.match_list[player1.origin_match_id].players[1];
-            if ((player11.score > player12.score && player1.is_winner === true) || (player11.score < player12.score && player1.is_winner === false)) {
-                tournament_match.match_list[i].players[0].id = player11.id;
-                tournament_match.match_list[i].players[0].name = player11.name;
-            } else if ((player11.score < player12.score && player1.is_winner === true) || (player11.score > player12.score && player1.is_winner === false)) {
-                tournament_match.match_list[i].players[0].id = player12.id;
-                tournament_match.match_list[i].players[0].name = player12.name;
-            }
-        }
-
-        let player2 = tournament_match.match_list[i].players[1];
-        if (player2.origin_match_id != -1) {
-            player21 = tournament_match.match_list[player2.origin_match_id].players[0];
-            player22 = tournament_match.match_list[player2.origin_match_id].players[1];
-            if ((player21.score > player22.score && player2.is_winner === true) || (player21.score < player22.score && player2.is_winner === false)) {
-                tournament_match.match_list[i].players[1].id = player21.id;
-                tournament_match.match_list[i].players[1].name = player21.name;
-            } else if ((player21.score < player22.score && player2.is_winner === true) || (player21.score > player22.score && player2.is_winner === false)) {
-                tournament_match.match_list[i].players[1].id = player22.id;
-                tournament_match.match_list[i].players[1].name = player22.name;
+        for (let player of tournament_match.match_list[i].players) {
+            if (player.origin_match_id != -1) {
+                const origin_match = tournament_match.match_list[player.origin_match_id];
+                let player1 = origin_match.players[0];
+                let player2 = origin_match.players[1];
+                if ((player1.score > origin_match.nb_games / 2 && player.is_winner === true)
+                    || (player2.score > origin_match.nb_games / 2 && player.is_winner === false)) {
+                    player.id = player1.id;
+                    player.name = player1.name;
+                } else if ((player2.score > origin_match.nb_games / 2 && player.is_winner === true)
+                    || (player1.score > origin_match.nb_games / 2 && player.is_winner === false)) {
+                    player.id = player2.id;
+                    player.name = player2.name;
+                }
             }
         }
     }

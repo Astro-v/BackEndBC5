@@ -25,7 +25,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Winner 1/4 Final 2",
             "nb_games": 3,
             "date" : "14h30",
@@ -49,7 +49,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Winner 1/4 Final 3",
             "nb_games": 3,
             "date" : "15h30",
@@ -73,7 +73,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Winner 1/4 Final 4",
             "nb_games": 3,
             "date" : "15h30",
@@ -97,7 +97,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/32 Final 1",
             "nb_games": 3,
             "date" : "15h",
@@ -145,7 +145,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/32 Final 3",
             "nb_games": 3,
             "date" : "16h",
@@ -169,7 +169,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/32 Final 4",
             "nb_games": 3,
             "date" : "16h",
@@ -193,7 +193,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/16 Final 1",
             "nb_games": 3,
             "date" : "16h30",
@@ -217,7 +217,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/16 Final 2",
             "nb_games": 3,
             "date" : "16h30",
@@ -241,7 +241,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/16 Final 3",
             "nb_games": 3,
             "date" : "17h",
@@ -265,7 +265,7 @@
                 }
             ]
         },
-        { 
+        {
             "label": "Loser 1/16 Final 4",
             "nb_games": 3,
             "date" : "17h",
