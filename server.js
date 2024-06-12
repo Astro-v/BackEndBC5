@@ -249,19 +249,31 @@ function updateGroupRank() {
 }
 
 function initializeTournament() {
-    for (let i = 0; i < 4; i++) {
-        tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
-        tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
-        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3 - i].id;
-        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3 - i].name;
+    
+    if (hasDoneAllGroupGames(0)) {
+        for (let i = 0; i < 4; i++) {
+            tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
+            tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
+        }
+            
+        for (let i = 4; i < 8; i++) {
+            tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
+            tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
+        }
     }
 
-    for (let i = 4; i < 8; i++) {
-        tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
-        tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
-        tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8 - i].id;
-        tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8 - i].name;
+    if (hasDoneAllGroupGames(1)) {
+        for (let i = 0; i < 4; i++) {
+            tournament_match.match_list[i].players[1].id = group_rank.group[1].players[8 - i].id;
+            tournament_match.match_list[i].players[1].name = group_rank.group[1].players[8 - i].name;
+        }
+
+        for (let i = 4; i < 8; i++) {     
+            tournament_match.match_list[i].players[1].id = group_rank.group[1].players[3 - i].id;
+            tournament_match.match_list[i].players[1].name = group_rank.group[1].players[3 - i].name;
+        }
     }
+    
 
     updateTournamentTree(tournament_tree.tournamentTree.default);
 }
@@ -273,10 +285,10 @@ function updateTournament() {
         if (player1.origin_match_id != -1) {
             player11 = tournament_match.match_list[player1.origin_match_id].players[0];
             player12 = tournament_match.match_list[player1.origin_match_id].players[1];
-            if ((player11.score > player12.score && player1.is_winner == true) || (player11.score < player12.score && player1.is_winner == false)) {
+            if ((player11.score > player12.score && player1.is_winner === true) || (player11.score < player12.score && player1.is_winner === false)) {
                 tournament_match.match_list[i].players[0].id = player11.id;
                 tournament_match.match_list[i].players[0].name = player11.name;
-            } else if ((player11.score < player12.score && player1.is_winner == true) || (player11.score > player12.score && player1.is_winner == false)) {
+            } else if ((player11.score < player12.score && player1.is_winner === true) || (player11.score > player12.score && player1.is_winner === false)) {
                 tournament_match.match_list[i].players[0].id = player12.id;
                 tournament_match.match_list[i].players[0].name = player12.name;
             }
@@ -286,10 +298,10 @@ function updateTournament() {
         if (player2.origin_match_id != -1) {
             player21 = tournament_match.match_list[player2.origin_match_id].players[0];
             player22 = tournament_match.match_list[player2.origin_match_id].players[1];
-            if ((player21.score > player22.score && player2.is_winner == true) || (player21.score < player22.score && player2.is_winner == false)) {
+            if ((player21.score > player22.score && player2.is_winner === true) || (player21.score < player22.score && player2.is_winner === false)) {
                 tournament_match.match_list[i].players[1].id = player21.id;
                 tournament_match.match_list[i].players[1].name = player21.name;
-            } else if ((player21.score < player22.score && player2.is_winner == true) || (player21.score > player22.score && player2.is_winner == false)) {
+            } else if ((player21.score < player22.score && player2.is_winner === true) || (player21.score > player22.score && player2.is_winner === false)) {
                 tournament_match.match_list[i].players[1].id = player22.id;
                 tournament_match.match_list[i].players[1].name = player22.name;
             }
@@ -301,20 +313,20 @@ function updateTournament() {
 
 function rename(id, name) {
     for (let i = 0; i < group_stage.group[0].players.length; i++) {
-        if (group_stage.group[0].players[i].id == id) {
+        if (group_stage.group[0].players[i].id === id) {
             group_stage.group[0].players[i].name = name;
         }
     }
     for (let i = 0; i < group_stage.group[1].players.length; i++) {
-        if (group_stage.group[1].players[i].id == id) {
+        if (group_stage.group[1].players[i].id === id) {
             group_stage.group[1].players[i].name = name;
         }
     }
     for (let i = 0; i < tournament_match.match_list.length; i++) {
-        if (tournament_match.match_list[i].players[0].id == id) {
+        if (tournament_match.match_list[i].players[0].id === id) {
             tournament_match.match_list[i].players[0].name = name;
         }
-        if (tournament_match.match_list[i].players[1].id == id) {
+        if (tournament_match.match_list[i].players[1].id === id) {
             tournament_match.match_list[i].players[1].name = name;
         }
     }
@@ -340,6 +352,18 @@ function updateTournamentTree(tree) {
             updateTournamentTree(tree.bottomChild);
         }
     }
+}
+
+function hasDoneAllGroupGames(group_id) {
+    let done = true;
+    for (let i = 0; i < 8; i++) {   
+        for (let j = 0; j < 5; j++) {
+            if (group_stage.group[group_id].players[i].ranking[j] === 0) {
+                done = false;
+            }
+        }
+    }
+    return done;
 }
 
 function save() {
