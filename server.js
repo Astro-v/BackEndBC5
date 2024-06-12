@@ -164,6 +164,11 @@ app.get('/tournament', (req, res) => {
     res.json(tournament_match);
 });
 
+// curl -b cookies.txt http://localhost:3000/tournament_tree
+app.get('/tournament_tree', (req, res) => {
+    res.json(tournament_tree);
+});
+
 // curl -b cookies.txt -X POST http://localhost:3000/tournament/0/0/3
 app.post('/tournament/:match_id/:player/:score', checkAuthenticated, (req, res) => {
     const match_id = parseInt(req.params.match_id, 10);
@@ -299,8 +304,8 @@ function rename(id, name) {
 // update the tournament tree recurcively :
 function updateTournamentTree(tree) {
     if (tree.id_match != undefined && tree.topPlayer != undefined && tree.bottomPlayer != undefined && tree.date != undefined) {
-        tree.topPlayer = tournament_match.match_list[tree.id_match].players[0].name;
-        tree.bottomPlayer = tournament_match.match_list[tree.id_match].players[1].name;
+        tree.topPlayer = tournament_match.match_list[tree.id_match].players[0];
+        tree.bottomPlayer = tournament_match.match_list[tree.id_match].players[1];
         tree.date = tournament_match.match_list[tree.id_match].date;
         if (tree.topChild != undefined && typeof tree.topChild != 'string') {
             updateTournamentTree(tree.topChild);
