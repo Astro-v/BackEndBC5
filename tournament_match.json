@@ -10,7 +10,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -18,7 +18,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -34,7 +34,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -42,7 +42,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -58,7 +58,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -66,7 +66,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -82,7 +82,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -90,7 +90,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -106,7 +106,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -114,7 +114,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -130,7 +130,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -138,7 +138,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -154,7 +154,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -162,7 +162,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -178,7 +178,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -186,7 +186,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": -1,
                     "is_winner": true
@@ -202,7 +202,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 0,
                     "is_winner": false
@@ -210,7 +210,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 4,
                     "is_winner": true
@@ -226,7 +226,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 1,
                     "is_winner": false
@@ -234,7 +234,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 5,
                     "is_winner": true
@@ -250,7 +250,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 2,
                     "is_winner": false
@@ -258,7 +258,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 6,
                     "is_winner": true
@@ -274,7 +274,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 3,
                     "is_winner": false
@@ -282,7 +282,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 7,
                     "is_winner": true
@@ -298,7 +298,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 0,
                     "is_winner": true
@@ -306,7 +306,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 1,
                     "is_winner": true
@@ -322,7 +322,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 2,
                     "is_winner": true
@@ -330,7 +330,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 3,
                     "is_winner": true
@@ -346,7 +346,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 8,
                     "is_winner": true
@@ -354,7 +354,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 9,
                     "is_winner": true
@@ -370,7 +370,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 10,
                     "is_winner": true
@@ -378,7 +378,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 11,
                     "is_winner": true
@@ -394,7 +394,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 12,
                     "is_winner": false
@@ -402,7 +402,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 14,
                     "is_winner": true
@@ -418,7 +418,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 13,
                     "is_winner": false
@@ -426,7 +426,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 15,
                     "is_winner": true
@@ -442,7 +442,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 12,
                     "is_winner": true
@@ -450,7 +450,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 13,
                     "is_winner": true
@@ -466,7 +466,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 16,
                     "is_winner": true
@@ -474,7 +474,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 17,
                     "is_winner": true
@@ -490,7 +490,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 18,
                     "is_winner": false
@@ -498,7 +498,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 19,
                     "is_winner": true
@@ -514,7 +514,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 18,
                     "is_winner": true
@@ -522,7 +522,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 20,
                     "is_winner": true
@@ -538,7 +538,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 21,
                     "is_winner": false
@@ -546,7 +546,7 @@
                 {
                     "id": -1,
                     "name": "???",
-                    "ban": 0,
+                    "ban": -1,
                     "score": 0,
                     "origin_match_id": 21,
                     "is_winner": true
