@@ -14,12 +14,12 @@ const points = [0, 12, 9, 7, 5, 3, 2, 1, 0];
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(session({
     secret: 'your secret key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // Note: In production, set this to true and ensure you use HTTPS
+    cookie: {secure: false} // Note: In production, set this to true and ensure you use HTTPS
 }));
 app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
@@ -46,6 +46,7 @@ const group_stage = require('./group_stage.json');
 const group_rank = require('./group_rank.json');
 const tournament_match = require('./tournament_match.json');
 const tournament_tree = require('./tournament_tree.json');
+const {contentDisposition} = require("express/lib/utils");
 
 const auth_token = 'mdpdezinzin123';
 
@@ -81,11 +82,11 @@ app.post('/login', (req, res) => {
             req.session.loggedin = true;
             req.session.username = username;
             // return cookies
-            res.json({ sessionID: req.sessionID, token: auth_token });
+            res.json({sessionID: req.sessionID, token: auth_token});
         } else {
             req.session.loggedin = false;
             console.log('User ' + username + ' failed to log in');
-            res.render('login', { wrong_login: true });
+            res.render('login', {wrong_login: true});
         }
     }).catch((err) => {
         console.log(err);
@@ -304,9 +305,13 @@ function rename(id, name) {
 // update the tournament tree recurcively :
 function updateTournamentTree(tree) {
     if (tree !== undefined) {
-        tree.topPlayer = tournament_match.match_list[tree.id_match].players[0];
-        tree.bottomPlayer = tournament_match.match_list[tree.id_match].players[1];
-        tree.date = tournament_match.match_list[tree.id_match].date;
+        const match = tournament_match.match_list[tree.id_match];
+
+        tree.players = match.players;
+        tree.label = match.label;
+        tree.date = match.date;
+        tree.nb_games = match.nb_games;
+
         if (tree.topChild != undefined && typeof tree.topChild != 'string') {
             updateTournamentTree(tree.topChild);
         }
