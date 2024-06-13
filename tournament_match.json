@@ -2,7 +2,7 @@
     "match_list":
     [
         {
-            "label": "Winner 1/4 Final 1",
+            "label": "Winner Quart 1",
             "nb_games": 3,
             "date" : "14h30",
             "players" :
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "label": "Winner 1/4 Final 2",
+            "label": "Winner Quart 2",
             "nb_games": 3,
             "date" : "14h30",
             "players" :
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "label": "Winner 1/4 Final 3",
+            "label": "Winner Quart 3",
             "nb_games": 3,
             "date" : "15h30",
             "players" :
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "label": "Winner 1/4 Final 4",
+            "label": "Winner Quart 4",
             "nb_games": 3,
             "date" : "15h30",
             "players" :
@@ -98,7 +98,7 @@
             ]
         },
         {
-            "label": "Loser 1/32 Final 1",
+            "label": "Loser 32e 1",
             "nb_games": 3,
             "date" : "15h",
             "players" :
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "label": "Loser 1/32 Final 2",
+            "label": "Loser 32e 2",
             "nb_games": 3,
             "date" : "15h",
             "players" :
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "label": "Loser 1/32 Final 3",
+            "label": "Loser 32e 3",
             "nb_games": 3,
             "date" : "16h",
             "players" :
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "label": "Loser 1/32 Final 4",
+            "label": "Loser 32e 4",
             "nb_games": 3,
             "date" : "16h",
             "players" :
@@ -194,7 +194,7 @@
             ]
         },
         {
-            "label": "Loser 1/16 Final 1",
+            "label": "Loser 16e 1",
             "nb_games": 3,
             "date" : "16h30",
             "players" :
@@ -218,7 +218,7 @@
             ]
         },
         {
-            "label": "Loser 1/16 Final 2",
+            "label": "Loser 16e 2",
             "nb_games": 3,
             "date" : "16h30",
             "players" :
@@ -242,7 +242,7 @@
             ]
         },
         {
-            "label": "Loser 1/16 Final 3",
+            "label": "Loser 16e 3",
             "nb_games": 3,
             "date" : "17h",
             "players" :
@@ -266,7 +266,7 @@
             ]
         },
         {
-            "label": "Loser 1/16 Final 4",
+            "label": "Loser 16e 4",
             "nb_games": 3,
             "date" : "17h",
             "players" :
@@ -290,7 +290,7 @@
             ]
         },
         {
-            "label": "Winner 1/2 Final 1",
+            "label": "Winner Demi 1",
             "nb_games": 3,
             "date" : "17h30",
             "players" :
@@ -314,7 +314,7 @@
             ]
         },
         {
-            "label": "Winner 1/2 Final 2",
+            "label": "Winner Demi 2",
             "nb_games": 3,
             "date" : "17h30",
             "players" :
@@ -338,7 +338,7 @@
             ]
         },
         {
-            "label": "Loser 1/8 Final 1",
+            "label": "Loser 8e 1",
             "nb_games": 3,
             "date" : "18h",
             "players" :
@@ -362,7 +362,7 @@
             ]
         },
         {
-            "label": "Loser 1/8 Final 2",
+            "label": "Loser 8e 2",
             "nb_games": 3,
             "date" : "18h",
             "players" :
@@ -386,7 +386,7 @@
             ]
         },
         {
-            "label": "Loser 1/4 Final 1",
+            "label": "Loser Quart 1",
             "nb_games": 3,
             "date" : "18h30",
             "players" :
@@ -410,7 +410,7 @@
             ]
         },
         {
-            "label": "Loser 1/4 Final 2",
+            "label": "Loser Quart 2",
             "nb_games": 3,
             "date" : "19h",
             "players" :
@@ -458,7 +458,7 @@
             ]
         },
         {
-            "label": "Loser 1/2 Final",
+            "label": "Demi Loser",
             "nb_games": 3,
             "date" : "20h30",
             "players" :
@@ -530,7 +530,7 @@
             ]
         },
         {
-            "label": "Second Final",
+            "label": "2e Grande Finale",
             "nb_games": 5,
             "date" : "23h",
             "players" :

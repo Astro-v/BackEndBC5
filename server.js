@@ -175,6 +175,7 @@ app.post('/change_group_game/:group_index/:game_index', checkAuthenticated, (req
     const game_index = parseInt(req.params.game_index, 10);
 
     group_stage.group[group_index].game_index = game_index;
+    group_rank.group[group_index].game_index = game_index;
 
     save();
 
@@ -236,6 +237,8 @@ function calculateScores() {
 
 function updateGroupRank() {
     for (let i = 0; i < 2; i++) {
+        group_rank.group[i].game_index = group_stage.group[i].game_index;
+        group_rank.group[i].date = group_stage.group[i].date;
         group_rank.group[i].players = [];
         for (let j = 0; j < 8; j++) {
             group_rank.group[i].players.push({

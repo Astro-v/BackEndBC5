@@ -3,6 +3,7 @@
     [
         {
             "game_index":-1,
+            "date": "11h",
             "players":
             [
                 {"id":0,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
@@ -17,6 +18,7 @@
         },
         {
             "game_index":-1,
+            "date": "12h",
             "players":
             [
                 {"id":8,"name":"???","score":0,"ranking":[0,0,0,0,0],"bonus":0},
