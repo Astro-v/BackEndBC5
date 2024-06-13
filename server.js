@@ -94,17 +94,21 @@ app.post('/login', (req, res) => {
 });
 
 // curl -X POST http://localhost:3000/select_player/0 -H "Content-Type: application/json" -H "Authorization: Bearer mdpdezinzin123"
-app.post('/select_player/:id', checkAuthenticated, (req, res) => {
+app.post('/select_player', checkAuthenticated, (req, res) => {
     // if unselectd_player is not empty
     if (unselected_player.name.length > 0) {
-        // select a random player
-        const randomIndex = Math.floor(Math.random() * unselected_player.name.length);
-        const player_name = unselected_player.name[randomIndex];
+        let slotId = getNextPlayer();
 
-        // remove the selected player from unselected_player
-        unselected_player.name.splice(randomIndex, 1);
+        if (0 <= slotId && slotId <= 15) {
+            // select a random player
+            const randomIndex = Math.floor(Math.random() * unselected_player.name.length);
+            const player_name = unselected_player.name[randomIndex];
 
-        rename(parseInt(req.params.id, 10), player_name);
+            // remove the selected player from unselected_player
+            unselected_player.name.splice(randomIndex, 1);
+
+            rename(slotId, player_name);
+        }
 
         save();
         res.json(players);
@@ -312,6 +316,19 @@ function updateTournament() {
     }
 
     updateTournamentTree(tournament_tree.tournamentTree.default);
+}
+
+
+function getNextPlayer() {
+    for (let i = 0; i < 16; i++) {
+        const groupIndex = i % 2;
+        const playerIndex = Math.floor(i / 2);
+
+        if (group_stage.group[groupIndex].players[playerIndex].name === '???')
+            return playerIndex + 8 * groupIndex;
+    }
+
+    return -1;
 }
 
 
