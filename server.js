@@ -250,13 +250,13 @@ function updateGroupRank() {
 }
 
 function initializeTournament() {
-    
+
     if (hasDoneAllGroupGames(0)) {
         for (let i = 0; i < 4; i++) {
             tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
             tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
         }
-            
+
         for (let i = 4; i < 8; i++) {
             tournament_match.match_list[i].players[0].id = group_rank.group[0].players[i].id;
             tournament_match.match_list[i].players[0].name = group_rank.group[0].players[i].name;
@@ -274,27 +274,35 @@ function initializeTournament() {
             tournament_match.match_list[i].players[1].name = group_rank.group[1].players[11 - i].name;
         }
     }
-    
+
 
     updateTournamentTree(tournament_tree.tournamentTree.default);
 }
 
 // function that compute the tournament tree
 function updateTournament() {
-    for (let i = 0; i < tournament_match.match_list.length; i++) {
-        for (let player of tournament_match.match_list[i].players) {
+    for (const match of tournament_match.match_list) {
+
+        if (match.players[0].score > match.nb_games / 2) {
+            match.winner_id = 0;
+        } else if (match.players[1].score > match.nb_games / 2) {
+            match.winner_id = 1;
+        } else {
+            match.winner_id = -1;
+        }
+
+        for (let player of match.players) {
             if (player.origin_match_id != -1) {
                 const origin_match = tournament_match.match_list[player.origin_match_id];
-                let player1 = origin_match.players[0];
-                let player2 = origin_match.players[1];
-                if ((player1.score > origin_match.nb_games / 2 && player.is_winner === true)
-                    || (player2.score > origin_match.nb_games / 2 && player.is_winner === false)) {
-                    player.id = player1.id;
-                    player.name = player1.name;
-                } else if ((player2.score > origin_match.nb_games / 2 && player.is_winner === true)
-                    || (player1.score > origin_match.nb_games / 2 && player.is_winner === false)) {
-                    player.id = player2.id;
-                    player.name = player2.name;
+                if (origin_match.winner_id < 0) {
+                    player.id = -1;
+                    player.name = '???';
+                } else {
+                    const sourcePlayer = player.is_winner
+                        ? origin_match.players[origin_match.winner_id]
+                        : origin_match.players[(origin_match.winner_id + 1) % 2];
+                    player.id = sourcePlayer.id;
+                    player.name = sourcePlayer.name;
                 }
             }
         }
@@ -302,7 +310,6 @@ function updateTournament() {
 
     updateTournamentTree(tournament_tree.tournamentTree.default);
 }
-
 
 
 function rename(id, name) {
@@ -338,6 +345,7 @@ function updateTournamentTree(tree) {
         tree.label = match.label;
         tree.date = match.date;
         tree.nb_games = match.nb_games;
+        tree.winner_id = match.winner_id;
 
         if (tree.topChild != undefined && typeof tree.topChild != 'string') {
             updateTournamentTree(tree.topChild);
@@ -350,7 +358,7 @@ function updateTournamentTree(tree) {
 
 function hasDoneAllGroupGames(group_id) {
     let done = true;
-    for (let i = 0; i < 8; i++) {   
+    for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 5; j++) {
             if (group_stage.group[group_id].players[i].ranking[j] === 0) {
                 done = false;
