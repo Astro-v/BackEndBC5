@@ -21,7 +21,9 @@ app.use(session({
     saveUninitialized: false,
     cookie: {secure: false} // Note: In production, set this to true and ensure you use HTTPS
 }));
-app.use(cors()); // Ceci permettra à toutes les origines d'accéder à votre serveur
+app.use(cors({
+    origin: 'https://bro-cup-v-front-ef1f476148d0.herokuapp.com/',
+})); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
 app.use((req, res, next) => {
     console.log(req.method + ' ' + req.path);
