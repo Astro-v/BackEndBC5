@@ -6,7 +6,7 @@ const cors = require('cors');
 
 
 const app = express();
-const port = 3000;
+const port = 443;
 
 // Tableau des points attribués pour chaque place
 const points = [0, 12, 9, 7, 5, 3, 2, 1, 0];
@@ -428,5 +428,5 @@ function save() {
 }
 
 app.listen(process.env.PORT || port, () => {
-    console.log(`App listening at http://localhost:${port}`);
+    console.log(`App listening at http://localhost:${process.env.PORT || port}`);
 });
