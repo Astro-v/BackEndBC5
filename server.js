@@ -2,7 +2,6 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const cors = require('cors');
 const https = require('https');
 
 const app = express();
@@ -46,7 +45,6 @@ const group_stage = require('./group_stage.json');
 const group_rank = require('./group_rank.json');
 const tournament_match = require('./tournament_match.json');
 const tournament_tree = require('./tournament_tree.json');
-const {contentDisposition} = require("express/lib/utils");
 
 const auth_token = 'mdpdezinzin123';
 
@@ -86,7 +84,7 @@ app.post('/login', (req, res) => {
         } else {
             req.session.loggedin = false;
             console.log('User ' + username + ' failed to log in');
-            res.render('login', {wrong_login: true});
+            res.sendStatus(401);
         }
     }).catch((err) => {
         console.log(err);
@@ -431,8 +429,8 @@ var privateKey = fs.readFileSync('/etc/letsencrypt/live/server.brocup.fr/privkey
 var certificate = fs.readFileSync('/etc/letsencrypt/live/server.brocup.fr/fullchain.pem');
 
 https.createServer({
-	key: privateKey,
-	cert: certificate
+    key: privateKey,
+    cert: certificate
 }, app).listen(process.env.PORT || port, () => {
     console.log(`App listening at http://localhost:${process.env.PORT || port}`);
 });
