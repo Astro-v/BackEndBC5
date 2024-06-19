@@ -223,6 +223,39 @@ app.post('/tournament_ban/:match_id/:player/:ban', checkAuthenticated, (req, res
     res.json(tournament_tree);
 });
 
+app.get('/current_game', (req, res) => {
+
+    // if still in group stage 
+    if (group_stage.group[0].game_index < 5 || group_stage.group[1].game_index < 5) {
+        if (group_stage.group[0].game_index >= group_stage.group[1].game_index) {
+            res.json({
+                label: "Group A - Game " + (group_stage.group[0].game_index + 1),
+                players: group_stage.group[0].players
+            });
+        }
+        else {
+            res.json({
+                label: "Group B - Game " + (group_stage.group[1].game_index + 1),
+                players: group_stage.group[1].players
+            });
+        }
+    }
+    else {  
+
+        // last game with no score
+        let current_game = -1;
+        for (let i = 0; i < tournament_match.match_list.length; i++) {
+            if (tournament_match.match_list[i].players[0].score !== 2 && tournament_match.match_list[i].players[1].score !== 2) {
+                res.json({
+                    label: "Tournament - " + tournament_match.match_list[i].label,
+                    players: [tournament_match.match_list[i].players[0].name, tournament_match.match_list[i].players[1].name] 
+                });
+                break;
+            }
+        }
+    }
+});
+
 
 // fonction that recalculates all the scores 
 function calculateScores() {
