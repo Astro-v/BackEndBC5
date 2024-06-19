@@ -3,7 +3,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const cors = require('cors');
-
+const https = require('https');
 
 const app = express();
 const port = 443;
@@ -21,16 +21,13 @@ app.use(session({
     saveUninitialized: false,
     cookie: {secure: false} // Note: In production, set this to true and ensure you use HTTPS
 }));
-app.use(cors({
-    origin: 'https://bro-cup-v-front-ef1f476148d0.herokuapp.com/',
-})); // Ceci permettra à toutes les origines d'accéder à votre serveur
 
 app.use((req, res, next) => {
     console.log(req.method + ' ' + req.path);
     console.log(`Headers:${JSON.stringify(req.headers, null, 2)}`);
     console.log(`Params:${JSON.stringify(req.params, null, 2)}`);
     console.log(`Body:${JSON.stringify(req.body, null, 2)}`);
-    res.header('Access-Control-Allow-Origin', req.headers.origin); // Echo back the origin
+    res.header('Access-Control-Allow-Origin', 'https://www.brocup.fr'); // Echo back the origin
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -40,6 +37,7 @@ app.use((req, res, next) => {
         next();
     }
 });
+
 const checkCredentials = require('./authentification');
 
 const unselected_player = require('./unselected_player.json');
@@ -429,6 +427,12 @@ function save() {
     });
 }
 
-app.listen(process.env.PORT || port, () => {
+var privateKey = fs.readFileSync('/etc/letsencrypt/live/server.brocup.fr/privkey.pem');
+var certificate = fs.readFileSync('/etc/letsencrypt/live/server.brocup.fr/fullchain.pem');
+
+https.createServer({
+	key: privateKey,
+	cert: certificate
+}, app).listen(process.env.PORT || port, () => {
     console.log(`App listening at http://localhost:${process.env.PORT || port}`);
 });
