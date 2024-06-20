@@ -265,6 +265,14 @@ app.get('/current_game', (req, res) => {
 });
 
 function getCurrentGame() {
+    for (const player of players) {
+        if (player === '???')
+            return {
+                label: 'Tirage des poules',
+                players: []
+            };
+    }
+
     const games = ['Quake', 'Geometry Dash', 'Trackmania', 'Golf With Your Friends', 'Geoguessr', 'Résultats'];
     // if still in group stage
     if (group_stage.group[0].game_index < 5 || group_stage.group[1].game_index < 5) {
