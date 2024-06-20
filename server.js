@@ -145,11 +145,13 @@ app.get('/status', (req, res) => {
 });
 
 app.get('/cup', (req, res) => {
+    const current_game = getCurrentGame();
     res.json({
         group_stage,
         group_rank,
         tournament_match,
         tournament_tree,
+        current_game,
     });
 });
 
@@ -259,6 +261,10 @@ app.post('/tournament_ban/:match_id/:player/:ban', checkAuthenticated, (req, res
 });
 
 app.get('/current_game', (req, res) => {
+    res.json(getCurrentGame());
+});
+
+function getCurrentGame() {
     const games = ['Quake', 'Geometry Dash', 'Trackmania', 'Golf With Your Friends', 'Geoguessr', 'Résultats'];
     // if still in group stage
     if (group_stage.group[0].game_index < 5 || group_stage.group[1].game_index < 5) {
@@ -275,11 +281,10 @@ app.get('/current_game', (req, res) => {
 
         const game = games[group.game_index] ?? 'Préparation';
 
-        res.json({
+        return {
             label: `${group_name} - ${game}`,
             players: group.players
-        });
-        return;
+        };
     } else {
         const matches_sorted_by_time =
             [...tournament_match.match_list]
@@ -290,17 +295,16 @@ app.get('/current_game', (req, res) => {
                 .sort((matchA, matchB) => matchA.date.localeCompare(matchB.date));
 
         if (matches_sorted_by_time.length > 0) {
-            const match = matches_sorted_by_time[0];
-            res.json(match);
-            return;
+            return matches_sorted_by_time[0];
         }
     }
 
-    res.json({
+    return {
         label: '',
         players: [],
-    });
-});
+    };
+
+}
 
 
 // fonction that recalculates all the scores 
