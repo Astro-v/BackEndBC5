@@ -39,12 +39,33 @@ app.use((req, res, next) => {
 
 const checkCredentials = require('./authentification');
 
-const unselected_player = require('./unselected_player.json');
-const players = require('./players.json');
-const group_stage = require('./group_stage.json');
-const group_rank = require('./group_rank.json');
-const tournament_match = require('./tournament_match.json');
-const tournament_tree = require('./tournament_tree.json');
+function requireSave(jsonPath) {
+    const savePath = jsonPath.replace('.json', '_save.json');
+    if (fs.existsSync(savePath))
+        return require(savePath);
+    return require(jsonPath);
+}
+
+let unselected_player = requireSave('./unselected_player.json');
+let players = requireSave('./players.json');
+let group_stage = requireSave('./group_stage.json');
+let group_rank = requireSave('./group_rank.json');
+let tournament_match = requireSave('./tournament_match.json');
+let tournament_tree = requireSave('./tournament_tree.json');
+
+function resetSaves() {
+    const saves = fs.readdirSync('.').filter(file => file.endsWith('_save.json'));
+    for (const save of saves) {
+        fs.rmSync(save);
+    }
+
+    unselected_player = require('./unselected_player.json');
+    players = require('./players.json');
+    group_stage = require('./group_stage.json');
+    group_rank = require('./group_rank.json');
+    tournament_match = require('./tournament_match.json');
+    tournament_tree = require('./tournament_tree.json');
+}
 
 const auth_token = 'mdpdezinzin123';
 
@@ -91,6 +112,11 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('/reset', checkAuthenticated, (req, res) => {
+    resetSaves();
+    res.sendStatus(200);
+});
+
 // curl -X POST http://localhost:3000/select_player/0 -H "Content-Type: application/json" -H "Authorization: Bearer mdpdezinzin123"
 app.post('/select_player', checkAuthenticated, (req, res) => {
     // if unselectd_player is not empty
@@ -116,6 +142,15 @@ app.post('/select_player', checkAuthenticated, (req, res) => {
 // curl -b cookies.txt http://localhost:3000/status
 app.get('/status', (req, res) => {
     res.json({status: 'OK'});
+});
+
+app.get('/cup', (req, res) => {
+    res.json({
+        group_stage,
+        group_rank,
+        tournament_match,
+        tournament_tree,
+    });
 });
 
 // curl -b cookies.txt http://localhost:3000/poules
