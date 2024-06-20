@@ -265,8 +265,8 @@ app.get('/current_game', (req, res) => {
 });
 
 function getCurrentGame() {
-    for (const player of players) {
-        if (player === '???')
+    for (const player_name of players.name) {
+        if (player_name === '???')
             return {
                 label: 'Tirage des poules',
                 players: []
