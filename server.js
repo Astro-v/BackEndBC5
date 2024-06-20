@@ -58,12 +58,12 @@ function resetSaves() {
     for (const save of saves) {
         fs.rmSync(save);
     }
-    unselected_player = require('./unselected_player.json');
-    players = require('./players.json');
-    group_stage = require('./group_stage.json');
-    group_rank = require('./group_rank.json');
-    tournament_match = require('./tournament_match.json');
-    tournament_tree = require('./tournament_tree.json');
+    unselected_player = JSON.parse(fs.readFileSync('./unselected_player.json').toString());
+    players = JSON.parse(fs.readFileSync('./players.json').toString());
+    group_stage = JSON.parse(fs.readFileSync('./group_stage.json').toString());
+    group_rank = JSON.parse(fs.readFileSync('./group_rank.json').toString());
+    tournament_match = JSON.parse(fs.readFileSync('./tournament_match.json').toString());
+    tournament_tree = JSON.parse(fs.readFileSync('./tournament_tree.json').toString());
     console.log(group_stage.group[0].players);
 }
 
