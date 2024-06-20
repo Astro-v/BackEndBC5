@@ -3,6 +3,7 @@
     [
         {
             "label": "Winner Quart 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "14h30",
             "players" :
@@ -51,6 +52,7 @@
         },
         {
             "label": "Winner Quart 3",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "15h30",
             "players" :
@@ -99,6 +101,7 @@
         },
         {
             "label": "Loser 32e 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "15h",
             "players" :
@@ -147,6 +150,7 @@
         },
         {
             "label": "Loser 32e 3",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "16h",
             "players" :
@@ -195,6 +199,7 @@
         },
         {
             "label": "Loser 16e 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "16h30",
             "players" :
@@ -243,6 +248,7 @@
         },
         {
             "label": "Loser 16e 3",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "17h",
             "players" :
@@ -291,6 +297,7 @@
         },
         {
             "label": "Winner Demi 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "17h30",
             "players" :
@@ -339,6 +346,7 @@
         },
         {
             "label": "Loser 8e 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "18h",
             "players" :
@@ -387,6 +395,7 @@
         },
         {
             "label": "Loser Quart 1",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "18h30",
             "players" :
@@ -411,6 +420,7 @@
         },
         {
             "label": "Loser Quart 2",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "19h",
             "players" :
@@ -435,6 +445,7 @@
         },
         {
             "label": "Finale Winner",
+            "is_cast": true,
             "nb_games": 5,
             "date" : "19h30",
             "players" :
@@ -459,6 +470,7 @@
         },
         {
             "label": "Demi Loser",
+            "is_cast": true,
             "nb_games": 3,
             "date" : "20h30",
             "players" :
@@ -483,6 +495,7 @@
         },
         {
             "label": "Finale Loser",
+            "is_cast": true,
             "nb_games": 5,
             "date" : "21h",
             "players" :
@@ -507,6 +520,7 @@
         },
         {
             "label": "Grande Finale",
+            "is_cast": true,
             "nb_games": 5,
             "date" : "22h",
             "players" :
@@ -531,6 +545,7 @@
         },
         {
             "label": "2e Grande Finale",
+            "is_cast": true,
             "nb_games": 5,
             "date" : "23h",
             "players" :
