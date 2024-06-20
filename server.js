@@ -223,6 +223,50 @@ app.post('/tournament_ban/:match_id/:player/:ban', checkAuthenticated, (req, res
     res.json(tournament_tree);
 });
 
+app.get('/current_game', (req, res) => {
+    const games = ['Quake', 'Geometry Dash', 'Trackmania', 'Golf With Your Friends', 'Geoguessr', 'Résultats'];
+    // if still in group stage
+    if (group_stage.group[0].game_index < 5 || group_stage.group[1].game_index < 5) {
+        let group;
+        let group_name;
+
+        if (group_stage.group[0].game_index < 5) {
+            group = group_stage.group[0];
+            group_name = 'Poule A';
+        } else {
+            group = group_stage.group[1];
+            group_name = 'Poule B';
+        }
+
+        const game = games[group.game_index] ?? 'Préparation';
+
+        res.json({
+            label: `${group_name} - ${game}`,
+            players: group.players
+        });
+        return;
+    } else {
+        const matches_sorted_by_time =
+            [...tournament_match.match_list]
+                .filter(match =>
+                    match.is_cast
+                    && match.players[0].score < match.nb_games / 2
+                    && match.players[1].score < match.nb_games / 2)
+                .sort((matchA, matchB) => matchA.date.localeCompare(matchB.date));
+
+        if (matches_sorted_by_time.length > 0) {
+            const match = matches_sorted_by_time[0];
+            res.json(match);
+            return;
+        }
+    }
+
+    res.json({
+        label: '',
+        players: [],
+    });
+});
+
 
 // fonction that recalculates all the scores 
 function calculateScores() {
